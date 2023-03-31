@@ -11,15 +11,15 @@ function Checkout() {
 
     const totalPrice = (input) => {
         let sum = 0;
-        for (let i=0; i<input.length; i++) {
+        for (let i = 0; i < input.length; i++) {
             sum += Number(input[i].price)
         }
         console.log(`Sum after adds:`, sum);
         return sum
-        
+
     }
     let checkoutTotal = totalPrice(checkoutCart)
-    
+
 
     const handleCheckout = () => {
         // console.log(`checkoutCustomerInfo`, checkoutCustomerInfo);
@@ -45,23 +45,22 @@ function Checkout() {
             }]
         }
 
-        
+
         // POST route to add order information to DB
         axios.post('/api/order', newOrder)
             .then(response => {
-                // action?
+                // dispatch to clear out reducers
+                dispatch({
+                    type: 'CHECKOUT',
+                    payload: []
+                })
+                history.push('/')
             })
             .catch(err => {
                 console.log(`Error`, err);
             })
 
-        // dispatch to clear out reducers
-        dispatch({
-            type: 'CHECKOUT',
-            payload: []
-        })
-        // redirect to main page. Not working?
-        history.push('/')
+
     } // end handleCheckout
 
     return (

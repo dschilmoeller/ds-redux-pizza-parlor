@@ -5,19 +5,17 @@ import axios from "axios";
 function AdminPage() {
     useEffect(() => {
         fetchAdminData();
-        
+
     }, [])
-    
+
     const [adminPizzaInfo, setAdminPizzaInfo] = useState([])
-    // get request for orders
+    
 
     const fetchAdminData = () => {
-
         axios.get('/api/order')
             .then(response => {
                 console.log(`response.data:`, response.data);
                 setAdminPizzaInfo(response.data)
-                
             })
             .catch(error => {
                 console.log('error')
@@ -41,8 +39,7 @@ function AdminPage() {
                     </tr>
                 </thead>
                 <tbody>
-
-                    { adminPizzaInfo.map((line, i) =>
+                    {adminPizzaInfo.map((line, i) =>
                         <tr key={i}>
                             <td>{line.customer_name}</td>
                             <td>{line.time}</td>
@@ -50,7 +47,6 @@ function AdminPage() {
                             <td>{line.total}</td>
                         </tr>
                     )}
-
                 </tbody>
             </table>
         </>
