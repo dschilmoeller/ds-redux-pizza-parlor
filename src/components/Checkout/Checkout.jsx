@@ -66,13 +66,9 @@ function Checkout() {
     return (
         <>
             <h1>Step 3: Checkout</h1>
-            <div>Container for customer info</div>
             <p>{checkoutCustomerInfo.name}<br />
                 {checkoutCustomerInfo.address}<br />
                 {checkoutCustomerInfo.city}, {checkoutCustomerInfo.zip}</p>
-
-
-
             <table>
                 <thead>
                     <tr>

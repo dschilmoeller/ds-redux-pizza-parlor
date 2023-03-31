@@ -32,6 +32,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        
         {/* Get pizza list and display */}
         <Route exact path="/">
           <HeaderWithCart />
@@ -55,9 +56,6 @@ function App() {
         </Route>
 
       </Router>
-      {/* <img src='images/pizza_photo.png' />
-      <p>Pizza is great.</p> */}
-
     </div>
   );
 }
